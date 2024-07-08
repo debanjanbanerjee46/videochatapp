@@ -1,14 +1,20 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import { BrowserRouter } from "react-router-dom";
+import reportWebVitals from "./reportWebVitals";
 
-import reportWebVitals from './reportWebVitals';
-import Lobby from './screens/lobby';
+import App from "./App";
+import { SocketProvider } from "./context/socketprovider";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <Lobby/>
+    <BrowserRouter>
+      <SocketProvider>
+        <App />
+      </SocketProvider>
+    </BrowserRouter>
   </React.StrictMode>
 );
 
